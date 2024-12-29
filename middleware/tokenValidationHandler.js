@@ -3,6 +3,9 @@ const jwt = require("jsonwebtoken");
 const validateToken = async (req, res, next) => {
   let token;
   const authHeader = req.headers.Authoriation || req.headers.authorization;
+  if (!authHeader) {
+    return res.status(401).json({ message: "Access Denied" });
+  }
   if (authHeader && authHeader.startsWith("Bearer")) {
     token = authHeader.split(" ")[1];
     if (!token) {
@@ -18,7 +21,6 @@ const validateToken = async (req, res, next) => {
         next();
       }
     });
-    console.log(req.user);
   }
 };
 

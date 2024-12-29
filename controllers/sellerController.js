@@ -38,7 +38,6 @@ const loginSeller = async (req, res) => {
     res.status(400).json({ message: "All fields are required" });
   }
   const seller = await sellerModel.findOne({ email, phone });
-  console.log(seller);
   if (!seller) {
     res.status(400).json({ message: "New User ? Sign Up First !" });
   }

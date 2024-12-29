@@ -18,7 +18,6 @@ connectDb();
 app.use("/seller", require("./routes/sellerRoutes.js")); // Owner Routes
 
 app.get("/", (req, res) => {
-  console.log(req.cookies);
   res.send("Server is Running and Woking Fine !");
 });
 

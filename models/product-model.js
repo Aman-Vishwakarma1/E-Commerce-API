@@ -1,12 +1,16 @@
 const mongoose = require("mongoose");
 const productSchema = mongoose.Schema(
   {
+    seller_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "seller",
+    },
     images: String,
     name: {
       type: String,
       required: [true, "Name is Required"],
     },
-    Description: {
+    description: {
       type: String,
     },
     price: {
@@ -21,11 +25,11 @@ const productSchema = mongoose.Schema(
       type: String,
       default: "",
     },
-    panelColour: {
+    panelcolour: {
       type: String,
       default: "",
     },
-    textColor: {
+    textcolor: {
       type: String,
       default: "",
     },
