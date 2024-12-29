@@ -30,6 +30,6 @@ const ownerSchema = mongoose.Schema(
   }
 );
 
-const owner = mongoose.model("owner", ownerSchema);
+const owner = mongoose.model("seller", ownerSchema);
 
 module.exports = owner;

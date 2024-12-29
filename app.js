@@ -15,6 +15,8 @@ app.use(express.static(path.join(__dirname, "views")));
 app.set("view engine", "ejs");
 connectDb();
 
+app.use("/seller", require("./routes/sellerRoutes.js")); // Owner Routes
+
 app.get("/", (req, res) => {
   console.log(req.cookies);
   res.send("Server is Running and Woking Fine !");
