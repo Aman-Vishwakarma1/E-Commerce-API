@@ -4,7 +4,7 @@ const validateToken = async (req, res, next) => {
   let token;
   const authHeader = req.headers.Authoriation || req.headers.authorization;
   if (!authHeader) {
-    return res.status(401).json({ message: "Access Denied" });
+    return res.status(401).json({ message: "Login first" });
   }
   if (authHeader && authHeader.startsWith("Bearer")) {
     token = authHeader.split(" ")[1];

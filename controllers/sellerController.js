@@ -8,11 +8,11 @@ const sellerModel = require("../models/seller-model");
 const createSeller = async (req, res) => {
   const { name, email, phone, password } = req.body;
   if (!email || !password || !name || !phone) {
-    res.status(400).json({ message: "All fields are required" });
+    return res.status(400).json({ message: "All fields are required" });
   }
-  const availableUser = await sellerModel.findeOne({ email, phone });
+  const availableUser = await sellerModel.findOne({ email, phone });
   if (availableUser) {
-    res.status(400).json({ message: "Email or Phone already exists" });
+    return res.status(400).json({ message: "Email or Phone already exists" });
   }
   const hashPassword = await bcrypt.hash(password, 10);
   const newSeller = await sellerModel.create({
@@ -25,7 +25,7 @@ const createSeller = async (req, res) => {
     res.status(400);
     throw new Error("Seller not created, Try again");
   } else {
-    res.status(201).json({ seller });
+    return res.status(201).json({ newSeller });
   }
 };
 
@@ -37,7 +37,7 @@ const loginSeller = async (req, res) => {
   if (!email || !password || !phone) {
     res.status(400).json({ message: "All fields are required" });
   }
-  const seller = await sellerModel.findOne({ email, phone });
+  const seller = await sellerModel.findOne({ email });
   if (!seller) {
     res.status(400).json({ message: "New User ? Sign Up First !" });
   }

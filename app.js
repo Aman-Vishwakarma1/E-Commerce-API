@@ -15,10 +15,12 @@ app.use(express.static(path.join(__dirname, "views")));
 app.set("view engine", "ejs");
 connectDb();
 
+app.use("/home", require("./routes/homeRoutes.js")); // Home Routes
 app.use("/seller", require("./routes/sellerRoutes.js")); // Owner Routes
+app.use("/customer", require("./routes/customerRoutes.js")); // Customer Routes
 
 app.get("/", (req, res) => {
-  res.send("Server is Running and Woking Fine !");
+  res.status(200).json({ message: "Server is Running and Woking Fine !" });
 });
 
 app.listen(PORT, () => {
