@@ -21,12 +21,13 @@ connectDb();
 const swaggerUICss =
   "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css";
 const corsOptions = {
-  origin: "http://localhost:5500", // Allow only requests from this origin
+  origin: "*", // Allow only requests from this origin
   methods: "GET,POST,PUT,DELETE", // Allow only these methods
   allowedHeaders: ["Content-Type", "Authorization"], // Allow only these headers
 };
 
 app.use(cors(corsOptions));
+app.use(express.json());
 app.use(
   "/api-docs",
   swaggerUI.serve,
