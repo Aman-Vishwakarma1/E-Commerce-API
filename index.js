@@ -29,8 +29,8 @@ const swaggerUICss =
 app.use(cors());
 app.use(
   "/api-docs",
-  swaggerui.serve,
-  swaggerui.setup(swaggerDocument, {
+  swaggerUI.serve,
+  swaggerUI.setup(swaggerDocument, {
     customCss:
       ".swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }",
     customCssUrl: swaggerUICss,
