@@ -18,6 +18,8 @@ app.use(express.static(path.join(__dirname, "views")));
 app.set("view engine", "ejs");
 connectDb();
 
+const swaggerUICss =
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css";
 // const corsOptions = {
 //   origin: "http://localhost:5500", // Allow only requests from this origin
 //   methods: "GET,POST", // Allow only these methods
@@ -25,7 +27,15 @@ connectDb();
 // };
 
 app.use(cors());
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+app.use(
+  "/api-docs",
+  swaggerui.serve,
+  swaggerui.setup(swaggerDocument, {
+    customCss:
+      ".swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }",
+    customCssUrl: swaggerUICss,
+  })
+);
 
 app.use("/home", require("./routes/homeRoutes.js")); // Home Routes
 app.use("/seller", require("./routes/sellerRoutes.js")); // Owner Routes
