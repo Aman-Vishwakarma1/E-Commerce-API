@@ -6,7 +6,7 @@ const swaggerUI = require("swagger-ui-express");
 const swaggerDocument = require("./swagger-output.json");
 
 // Database Connection
-const connectDb = require("./config/dbconnect");
+const connectDb = require("./config/dbconnect.js");
 
 const app = express();
 const PORT = 4800;
