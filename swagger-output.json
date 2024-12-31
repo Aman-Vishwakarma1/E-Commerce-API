@@ -5,7 +5,16 @@
     "description": "This API supports all customer and seller operations",
     "version": "1.0.0"
   },
-
+  "components": {
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "description": "Enter the token with the `Bearer: ` prefix, e.g., \"Bearer abcde12345\"."
+      }
+    }
+  },
   "basePath": "/",
   "schemes": ["http"],
   "paths": {
@@ -45,17 +54,29 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": { "example": "any" },
-                "email": { "example": "any" },
-                "phone": { "example": "any" },
-                "password": { "example": "any" }
+                "name": {
+                  "example": "test"
+                },
+                "email": {
+                  "example": "test@gmail.com"
+                },
+                "phone": {
+                  "example": "1234567890"
+                },
+                "password": {
+                  "example": "test@123"
+                }
               }
             }
           }
         ],
         "responses": {
-          "201": { "description": "Created" },
-          "400": { "description": "Bad Request" }
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
         }
       }
     },
@@ -70,17 +91,29 @@
             "schema": {
               "type": "object",
               "properties": {
-                "email": { "example": "any" },
-                "password": { "example": "any" },
-                "phone": { "example": "any" }
+                "email": {
+                  "example": "test@gmail.com"
+                },
+                "password": {
+                  "example": "test@123"
+                },
+                "phone": {
+                  "example": "1234567890"
+                }
               }
             }
           }
         ],
         "responses": {
-          "200": { "description": "OK" },
-          "400": { "description": "Bad Request" },
-          "401": { "description": "Unauthorized" }
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
         }
       }
     },
@@ -91,14 +124,21 @@
         "parameters": [
           {
             "name": "Authorization",
+            "description": "Add Bearer prefix  + Token",
             "in": "header",
             "type": "string"
           }
         ],
         "responses": {
-          "200": { "description": "OK" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" }
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
         }
       }
     },
@@ -114,10 +154,18 @@
           }
         ],
         "responses": {
-          "200": { "description": "OK" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" }
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
         }
       }
     },
@@ -137,22 +185,44 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": { "example": "any" },
-                "price": { "example": "any" },
-                "description": { "example": "any" },
-                "discount": { "example": "any" },
-                "bgcolor": { "example": "any" },
-                "textcolor": { "example": "any" },
-                "panelcolor": { "example": "any" }
+                "name": {
+                  "example": "Book"
+                },
+                "price": {
+                  "example": "100"
+                },
+                "description": {
+                  "example": "Written by A.P.J Abdul Kalam about is life journey"
+                },
+                "discount": {
+                  "example": "20"
+                },
+                "bgcolor": {
+                  "example": "white"
+                },
+                "textcolor": {
+                  "example": "black"
+                },
+                "panelcolor": {
+                  "example": "yellow"
+                }
               }
             }
           }
         ],
         "responses": {
-          "201": { "description": "Created" },
-          "400": { "description": "Bad Request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" }
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
         }
       }
     },
@@ -161,19 +231,64 @@
         "tags": ["Seller"],
         "description": "Update a product",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "type": "string" },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "Authorization",
             "in": "header",
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Book"
+                },
+                "price": {
+                  "example": "100"
+                },
+                "description": {
+                  "example": "Written by A.P.J Abdul Kalam about is life journey"
+                },
+                "discount": {
+                  "example": "20"
+                },
+                "bgcolor": {
+                  "example": "white"
+                },
+                "textcolor": {
+                  "example": "black"
+                },
+                "panelcolor": {
+                  "example": "yellow"
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "200": { "description": "OK" },
-          "400": { "description": "Bad Request" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" }
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
         }
       }
     },
@@ -182,7 +297,12 @@
         "tags": ["Seller"],
         "description": "Delete a product",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "type": "string" },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "Authorization",
             "in": "header",
@@ -190,10 +310,18 @@
           }
         ],
         "responses": {
-          "200": { "description": "OK" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" }
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
         }
       }
     },
@@ -208,17 +336,29 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": { "example": "any" },
-                "email": { "example": "any" },
-                "phone": { "example": "any" },
-                "password": { "example": "any" }
+                "name": {
+                  "example": "customer1"
+                },
+                "email": {
+                  "example": "customer@gmail.com"
+                },
+                "phone": {
+                  "example": "0987654321"
+                },
+                "password": {
+                  "example": "customer@123"
+                }
               }
             }
           }
         ],
         "responses": {
-          "201": { "description": "Created" },
-          "400": { "description": "Bad Request" }
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
         }
       }
     },
@@ -233,15 +373,23 @@
             "schema": {
               "type": "object",
               "properties": {
-                "email": { "example": "any" },
-                "password": { "example": "any" }
+                "email": {
+                  "example": "customer@gmail.com"
+                },
+                "password": {
+                  "example": "customer@123"
+                }
               }
             }
           }
         ],
         "responses": {
-          "200": { "description": "OK" },
-          "400": { "description": "Bad Request" }
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
         }
       }
     },
@@ -257,9 +405,15 @@
           }
         ],
         "responses": {
-          "200": { "description": "OK" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" }
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
         }
       }
     },
@@ -268,7 +422,12 @@
         "tags": ["Customer"],
         "description": "Add product to cart",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "type": "string" },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "Authorization",
             "in": "header",
@@ -276,10 +435,18 @@
           }
         ],
         "responses": {
-          "200": { "description": "OK" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" }
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
         }
       }
     },
@@ -288,7 +455,12 @@
         "tags": ["Customer"],
         "description": "Delete product from cart",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "type": "string" },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "Authorization",
             "in": "header",
@@ -296,10 +468,18 @@
           }
         ],
         "responses": {
-          "200": { "description": "OK" },
-          "401": { "description": "Unauthorized" },
-          "403": { "description": "Forbidden" },
-          "404": { "description": "Not Found" }
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
         }
       }
     }
