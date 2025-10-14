@@ -43,7 +43,7 @@ app.use("/seller", require("./routes/sellerRoutes.js")); // Owner Routes
 app.use("/customer", require("./routes/customerRoutes.js")); // Customer Routes
 
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "Server is Running and Woking Fine !" });
+  res.status(200).json({ message: "Server is Running and Woking Fine and jenkins too !" });
 });
 
 app.listen(PORT, () => {
