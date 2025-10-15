@@ -43,7 +43,7 @@ app.use("/seller", require("./routes/sellerRoutes.js")); // Owner Routes
 app.use("/customer", require("./routes/customerRoutes.js")); // Customer Routes
 
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "server is running fine and jenkins is now configed properly for CI/CD  --- aman_vishwakarma.dev!" });
+  res.status(200).json({ message: "ecommerce backend is running and Jenkins iS configed for CI/CD." });
 });
 
 app.listen(PORT, () => {
